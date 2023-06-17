@@ -1,5 +1,5 @@
 pipeline {
-    agent any 
+    agent { label "Salve2" }
     stages {
         stage ('BUILD') {
             steps {
