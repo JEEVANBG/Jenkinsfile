@@ -9,6 +9,7 @@ pipeline {
         stage ('TEST') {
             steps {
                 sh 'sleep 5'
+                exit 1
             }
         }
         stage ('DEPLOY') {
