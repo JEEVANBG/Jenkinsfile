@@ -5,6 +5,7 @@ pipeline {
         stage ('TEST1') {
             steps {
                 sh 'sleep 5'
+                echo 'test1 executed successfully'
             }
         }
         stage ('TEST2') {
