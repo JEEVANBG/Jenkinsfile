@@ -16,7 +16,7 @@ pipeline {
                 script {
                     env.BUILD_STAGE='BUILD'
                 }
-                sh 'sleep 5'
+                sh 'sleep 3'
                 echo "${env.BUILD_STAGE}"
             }
         }
