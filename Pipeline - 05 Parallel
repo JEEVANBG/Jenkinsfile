@@ -5,21 +5,23 @@ pipeline {
         BUILD-STAGE = 'Deploy'
     }
     */
-    stages ('TEST MULTIPLE') {
-        parallel {
-            stage ('BUILD') {
-                steps {
-                    sh 'sleep 5'
+    stages {
+        stage ('TEST MULTIPLE') {
+            parallel {
+                stage ('BUILD') {
+                    steps {
+                        sh 'sleep 5'
+                    }
                 }
-            }
-            stage ('TEST') {
-                steps {
-                    sh 'sleep 5'
+                stage ('TEST') {
+                    steps {
+                        sh 'sleep 5'
+                    }
                 }
-            }
-            stage ('DEPLOY') {
-                steps {
-                    sh 'sleep 5'
+                stage ('DEPLOY') {
+                    steps {
+                        sh 'sleep 5'
+                    }
                 }
             }
         }
