@@ -19,7 +19,7 @@ pipeline {
         stage ('STAGE2') {
             steps {
                 script {
-                    if {stageResult == true} {
+                    if (stageResult == true) {
                         echo 'STAGE1 is executed successfully, hence execution of STAGE 2 Occurs'
                     }
                 }
