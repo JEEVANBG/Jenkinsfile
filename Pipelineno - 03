@@ -24,6 +24,7 @@ pipeline {
         stage ('DEPLOY') {
             steps {
                 sh 'sleep 5'
+                echo "${env.BUILD_STAGE}"
             }
         }
         
