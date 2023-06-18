@@ -1,0 +1,41 @@
+BOOLEAN stageResult  = true
+pipeline {
+    agent any
+    stages {
+        stage ('STAGE1') {
+            agent { label 'master' }
+            steps {
+                script {
+                    try {
+                        echo 'This is STAGE1 execution'
+                        sh 'sleep 5'
+                    }
+                    catch(Exception e) {
+                        echo 'STAGE1 is FAILED'
+                        stageResult = false
+                    }
+                }
+            }
+        }
+        stage ('STAGE2') {
+            agent { label 'slave-02' }
+            steps {
+                script {
+                    if {stageResult == true} {
+                        echo 'STAGE1 is executed successfully, hence execution of STAGE 2 Occurs'
+                    }
+                }
+            }
+        }
+        stage ('DEPLOY') {
+            agent { label 'slave-02' }
+            steps {
+                script {
+                    if {stageResult == false} {
+                        echo 'STAGE1 is not executed successfully, hence execution of STAGE 2 Occurs'
+                    }
+                }
+            }
+        }
+    }
+}
