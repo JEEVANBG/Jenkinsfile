@@ -5,14 +5,12 @@ pipeline {
     }
     stages {
         stage ('BUILD') {
-            agent { label 'master' }
             steps {
                 sh 'sleep 5'
                 echo "${env.BUILD-STAGE}"
             }
         }
         stage ('TEST') {
-            agent { label 'slave-02' }
             steps {
                 script {
                     env.BUILD_STAGE='BUILD'
@@ -22,7 +20,6 @@ pipeline {
             }
         }
         stage ('DEPLOY') {
-            agent { label 'slave-02' }
             steps {
                 sh 'sleep 5'
             }
