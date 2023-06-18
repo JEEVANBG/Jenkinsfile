@@ -25,5 +25,17 @@ pipeline {
                 }
             }
         }
+        stage ('2nd STAGE') {
+            steps {
+                sh 'sleep 5'
+                echo '2nd stage executed successfull'
+            }
+        }
+        stage ('3rd STAGE') {
+            steps {
+                sh 'sleep 5'
+                echo '3rd stage executed successfull'
+            }
+        }
     }
 }
