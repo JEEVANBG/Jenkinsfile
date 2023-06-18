@@ -5,7 +5,7 @@ pipeline {
         BUILD-STAGE = 'Deploy'
     }
     */
-    stages {
+    stages ('TEST MULTIPLE') {
         parallel {
             stage ('BUILD') {
                 steps {
@@ -23,6 +23,5 @@ pipeline {
                 }
             }
         }
-        
     }
 }
