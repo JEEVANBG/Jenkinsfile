@@ -10,6 +10,12 @@ pipeline {
                 echo "${env.BUILD-STAGE}"
             }
         }
+        
+        stage ('DEPLOY') {
+            steps {
+                sh 'sleep 5'
+            }
+        }
         stage ('TEST') {
             script {
                 env.BUILD_STAGE='BUILD'
@@ -17,11 +23,6 @@ pipeline {
             steps {
                 sh 'sleep 5'
                 echo "${env.BUILD_STAGE}"
-            }
-        }
-        stage ('DEPLOY') {
-            steps {
-                sh 'sleep 5'
             }
         }
     }
