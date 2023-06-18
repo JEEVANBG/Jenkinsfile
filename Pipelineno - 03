@@ -17,14 +17,14 @@ pipeline {
                     env.BUILD_STAGE='BUILD'
                 }
                 sh 'sleep 3'
-                echo "${env.BUILD_STAGE}"
+                echo "${BUILD_STAGE}"
             }
         }
 
         stage ('DEPLOY') {
             steps {
                 sh 'sleep 5'
-                echo "${env.BUILD_STAGE}"
+                echo "${BUILD_STAGE}"
             }
         }
         
