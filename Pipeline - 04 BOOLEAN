@@ -28,7 +28,7 @@ pipeline {
         stage ('DEPLOY') {
             steps {
                 script {
-                    if {stageResult == false} {
+                    if (stageResult == false) {
                         echo 'STAGE1 is not executed successfully, hence execution of STAGE 2 Occurs'
                     }
                 }
