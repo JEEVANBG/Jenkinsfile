@@ -16,7 +16,7 @@ pipeline {
                 sh 'sleep 5'
             }
         }
-        stage ('TEST') {
+        /*stage ('TEST') {
             script {
                 env.BUILD_STAGE='BUILD'
             }
@@ -25,5 +25,7 @@ pipeline {
                 echo "${env.BUILD_STAGE}"
             }
         }
+        */
+
     }
 }
