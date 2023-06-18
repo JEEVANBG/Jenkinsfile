@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+    environment {
+        BUILD-STAGE = 'Deploy'
+    }
+    stages {
+        stage ('BUILD') {
+            agent { label 'master' }
+            steps {
+                sh 'sleep 5'
+            }
+        }
+        stage ('TEST') {
+            agent { label 'slave-02' }
+            steps {
+                sh 'sleep 5'
+            }
+        }
+        stage ('DEPLOY') {
+            agent { label 'slave-02' }
+            steps {
+                sh 'sleep 5'
+            }
+        }
+    }
+}
