@@ -1,27 +1,23 @@
 pipeline {
     agent any
-    /*
-    environment {
-        BUILD-STAGE = 'Deploy'
-    }
-    */
+
     stages {
-        stage ('TEST MULTIPLE') {
-            parallel {
-                stage ('BUILD') {
-                    steps {
-                        sh 'sleep 5'
-                    }
+        stage ('TEST') {
+            stage ('TEST1') {
+                steps {
+                    sh 'sleep 5'
                 }
-                stage ('TEST') {
-                    steps {
-                        sh 'sleep 5'
-                    }
+            }
+            stage ('TEST2') {
+                steps {
+                    catchError(buildresult: 'SUCCESS', stageResult: 'FAILURE')
+                    sh 'sleep 5'
+                    sh 'exit 1'
                 }
-                stage ('DEPLOY') {
-                    steps {
-                        sh 'sleep 5'
-                    }
+            }
+            stage ('TEST3') {
+                steps {
+                    sh 'sleep 5'
                 }
             }
         }
