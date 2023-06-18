@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+    /*
+    environment {
+        BUILD-STAGE = 'Deploy'
+    }
+    */
+    stages {
+        stage ('TEST MULTIPLE') {
+            parallel {
+                stage ('BUILD') {
+                    steps {
+                        sh 'sleep 5'
+                    }
+                }
+                stage ('TEST') {
+                    steps {
+                        sh 'sleep 5'
+                    }
+                }
+                stage ('DEPLOY') {
+                    steps {
+                        sh 'sleep 5'
+                    }
+                }
+            }
+        }
+    }
+}
