@@ -1,9 +1,8 @@
-BOOLEAN stageResult  = true
+boolean stageResult  = true
 pipeline {
     agent any
     stages {
         stage ('STAGE1') {
-            agent { label 'master' }
             steps {
                 script {
                     try {
@@ -18,7 +17,6 @@ pipeline {
             }
         }
         stage ('STAGE2') {
-            agent { label 'slave-02' }
             steps {
                 script {
                     if {stageResult == true} {
@@ -28,7 +26,6 @@ pipeline {
             }
         }
         stage ('DEPLOY') {
-            agent { label 'slave-02' }
             steps {
                 script {
                     if {stageResult == false} {
