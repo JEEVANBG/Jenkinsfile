@@ -11,10 +11,10 @@ pipeline {
             }
         }
         stage ('TEST') {
+            script {
+                env.BUILD_STAGE='BUILD'
+            }
             steps {
-                script {
-                    env.BUILD_STAGE='BUILD'
-                }
                 sh 'sleep 5'
                 echo "${env.BUILD_STAGE}"
             }
