@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script {
                     if (stageResult == true) {
-                        echo 'STAGE1 is executed successfully, hence STAGE 2 also failed'
+                        echo 'STAGE1 is failed, hence STAGE 2 also failed'
                     }
                 }
             }
@@ -30,7 +30,7 @@ pipeline {
             steps {
                 script {
                     if (stageResult == false) {
-                        echo 'STAGE1 is not executed successfully, hence execution of STAGE 3 Occurs'
+                        echo 'STAGE1 is not executed successfully, hence execution of STAGE 3 successfull'
                     }
                 }
             }
