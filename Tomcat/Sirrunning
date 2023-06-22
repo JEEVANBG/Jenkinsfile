@@ -9,6 +9,7 @@ pipeline {
         stage ('Build-Maven') {
             steps {
                 sh '''
+                    cd /home/ubuntu/
                     cd ./maven/simple-war/
                     mvn clean package
                     cd ./target/
