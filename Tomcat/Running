@@ -1,4 +1,4 @@
-pipeline{
+pipeline {
     agent any
 
     //Here we need to install maven in jenkins by going to tools section , where we give name as maven and maven-3.9.2 means version of maven , 
