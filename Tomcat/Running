@@ -11,14 +11,8 @@ pipeline {
         stage ('BUILD') {
             steps {
                 echo 'Stage1 started'
-                    sh 'cd ./Devops-ITD-May-2023/maven/simple-war/'
-                    echo '1st run'
-                    sh 'mvn clean package'
-                    echo '2nd run'
-                    sh 'cd ./target/'
-                    echo '3rd run'
-                    sh 'ls'
-                    echo 'Build is done by maven and deploying is done tomcat'
+                sh 'ls'
+                echo 'Build is done by maven and deploying is done tomcat'
                 
             }
         }
