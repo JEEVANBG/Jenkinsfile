@@ -13,7 +13,7 @@ pipeline{
                 echo 'Stage1 started'
                 sh ''' 
                     //changing the directory to maven folder
-                    cd .dd/maven/simple-war/
+                    cd ./maven/simple-war/
                     //run the maven command
                     mvn clean package
                     //for confirmation change directory to target folder 
