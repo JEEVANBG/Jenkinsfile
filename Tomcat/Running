@@ -11,7 +11,7 @@ pipeline {
         stage ('BUILD') {
             steps {
                 echo 'Stage1 started'
-                    sh 'cd ./maven/simple-war/'
+                    sh 'cd ./Devops-ITD-May-2023/maven/simple-war/'
                     echo '1st run'
                     sh 'mvn clean package'
                     echo '2nd run'
