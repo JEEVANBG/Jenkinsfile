@@ -1,1 +1,27 @@
+pipeline{
+    agent any
 
+    //Here we need to install maven in jenkins by going to tools section , where we give name as maven and maven-3.9.2 means version of maven , 
+    we can select other version also
+    tools {
+        maven 'maven-3.9.2'
+    }
+
+    stages {
+        stage ('BUILD') {
+            steps {
+                sh ''' 
+                    #changing the directory to maven folder
+                    cd ./maven/simple-war/
+                    #run the maven command
+                    mvn clean package
+                    #for confirmation change directory to target folder 
+                    cd ./target
+                    #here we run ls command
+                    ls
+                '''
+                echo 'Build is done by maven and deploying is done tomcat'
+            }
+        }
+    }
+}
