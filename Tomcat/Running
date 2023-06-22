@@ -10,6 +10,7 @@ pipeline{
     stages {
         stage ('BUILD') {
             steps {
+                echo 'Stage1 started'
                 sh ''' 
                     //changing the directory to maven folder
                     cd ./maven/simple-war/
