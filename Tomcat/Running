@@ -13,12 +13,16 @@ pipeline{
                 echo 'Stage1 started'
                 sh ''' 
                     //changing the directory to maven folder
-                    cd ./maven/simple-war/
+                    //cd ./maven/simple-war/
                     //run the maven command
-                    mvn clean package
+                    //mvn clean package
                     //for confirmation change directory to target folder 
-                    cd ./target
+                    //cd ./target
                     //here we run ls command
+                    //ls
+                    cd ./maven/simple-war/
+                    mvn clean package
+                    cd ./target/
                     ls
                 '''
                 echo 'Build is done by maven and deploying is done tomcat'
