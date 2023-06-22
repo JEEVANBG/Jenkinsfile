@@ -11,15 +11,7 @@ pipeline {
         stage ('BUILD') {
             steps {
                 echo 'Stage1 started'
-                sh ''' 
-                    //changing the directory to maven folder
-                    //cd ./maven/simple-war/
-                    //run the maven command
-                    //mvn clean package
-                    //for confirmation change directory to target folder 
-                    //cd ./target
-                    //here we run ls command
-                    //ls
+                sdfdsh ''' 
                     cd ./maven/simple-war/
                     mvn clean package
                     cd ./target/
