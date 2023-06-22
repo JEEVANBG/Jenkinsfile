@@ -11,13 +11,14 @@ pipeline {
         stage ('BUILD') {
             steps {
                 echo 'Stage1 started'
-                sdfdsh ''' 
-                    cd ./maven/simple-war/
-                    mvn clean package
-                    cd ./target/
-                    ls
+                    sh 'cd ./maven/simple-war/'
+                    echo '1st run'
+                    sh 'mvn clean package'
+                    echo '2nd run'
+                    sh 'cd ./target/'
+                    echo '3rd run'
+                    sh 'ls'
                     echo 'Build is done by maven and deploying is done tomcat'
-                '''
                 
             }
         }
