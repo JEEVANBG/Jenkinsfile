@@ -16,8 +16,9 @@ pipeline {
                     mvn clean package
                     cd ./target/
                     ls
+                    echo 'Build is done by maven and deploying is done tomcat'
                 '''
-                echo 'Build is done by maven and deploying is done tomcat'
+                
             }
         }
     }
