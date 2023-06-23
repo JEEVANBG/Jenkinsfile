@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        BUILD_STAGE='Deploy'
+        BUILD_STAGE='BUILD'
     }
     stages {
         stage ('BUILD') {
@@ -17,14 +17,14 @@ pipeline {
                     env.BUILD_STAGE='BUILD'
                 }
                 sh 'sleep 3'
-                echo "${BUILD_STAGE}"
+                echo "${env.BUILD_STAGE}"
             }
         }
 
         stage ('DEPLOY') {
             steps {
                 sh 'sleep 5'
-                echo "${BUILD_STAGE}"
+                echo "${env.BUILD_STAGE}"
             }
         }
         
