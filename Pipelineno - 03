@@ -1,4 +1,4 @@
-pipeline {
+Ypipeline {
     agent any
     environment {
         BUILD_STAGE='BUILD'
@@ -14,7 +14,7 @@ pipeline {
         stage ('TEST') {
             steps {
                 script {
-                    env.BUILD_STAGE='BUILD'
+                    env.BUILD_STAGE='TEST'
                 }
                 sh 'sleep 3'
                 echo "${env.BUILD_STAGE}"
