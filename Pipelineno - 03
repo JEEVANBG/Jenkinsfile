@@ -1,4 +1,4 @@
-Ypipeline {
+pipeline {
     agent any
     environment {
         BUILD_STAGE='BUILD'
