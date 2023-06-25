@@ -11,6 +11,8 @@ pipeline {
         stage ('BUILD') {
             steps {
                 echo 'Stage1 started'
+                sh 'pwd'
+                sh 'ls'
                 sh 'cd ./maven/simple-war/'
                 
             }
