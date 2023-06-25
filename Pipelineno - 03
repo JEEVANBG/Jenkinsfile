@@ -6,6 +6,8 @@ pipeline {
     stages {
         stage ('BUILD') {
             steps {
+                sh 'pwd'
+                sh 'ls'
                 sh 'sleep 5'
                 echo "${env.BUILD_STAGE}"
             }
