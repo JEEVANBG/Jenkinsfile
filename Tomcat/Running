@@ -12,6 +12,7 @@ pipeline {
             steps {
                 echo 'Stage1 started'
                 sh 'cd ./maven/simple-war/'
+                echo 'changed to maven directory'
                 
             }
         }
