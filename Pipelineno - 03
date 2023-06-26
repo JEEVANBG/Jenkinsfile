@@ -4,7 +4,7 @@ pipeline {
         BUILD_STAGE='BUILD'
     }
     triggers {
-        cron ('12 11 * * *')
+        cron('12 11 * * *')
     }
     stages {
         stage ('BUILD') {
