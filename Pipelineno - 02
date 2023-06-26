@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        BUILD-STAGE='Deploy'
+        BUILD_STAGE='Deploy'
     }
     triggers {
         cron('10 11 * * *')
