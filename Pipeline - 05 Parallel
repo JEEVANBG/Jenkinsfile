@@ -10,7 +10,7 @@ pipeline {
             parallel {
                 stage ('BUILD') {
                     steps {
-                        sh 'sleep 5'
+                        sh 'sleep 3'
                     }
                 }
                 stage ('TEST') {
