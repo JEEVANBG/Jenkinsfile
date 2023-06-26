@@ -3,6 +3,9 @@ pipeline {
     environment {
         BUILD-STAGE = 'Deploy'
     }
+    triggers {
+        cron('8 11 * * *')
+    }
     stages {
         stage ('BUILD') {
             agent { label 'master' }
