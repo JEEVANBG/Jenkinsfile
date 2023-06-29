@@ -22,10 +22,12 @@ pipeline {
             }
         }
         stage ('STAGE3') {
-            when {
-                stageResult == false
-            }
             steps {
+                script {
+                    when {
+                      tageResult == false  
+                    }
+                }
                 echo 'STAGE1 is failed, hence STAGE3 is executed'
             }
         }
