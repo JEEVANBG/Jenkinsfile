@@ -3,7 +3,7 @@
 <title>,mavenproject.org!</title>
 </head>
 <body>
-	<h1>IT Defined ! Deployed to Tomcat</h1>
+	<h1>IT Defined ! Deployed to Tomcat using webhook</h1>
 	<p>
 		It is now
 		<%= new java.util.Date() %></p>
