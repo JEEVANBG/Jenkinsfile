@@ -4,9 +4,11 @@ pipeline {
     stages {
         stage ('STAGE1') {
             steps {
-                echo "STAGE1 execution is failed due to exit command , and we assign stageResult as false , so that we need to execute STAGE3"
-                catchError(buildResult:'SUCCESS',stageResult:'FAILURE') {
+                script {
                     stageResult = false
+                }
+                echo "STAGE1 execution is failed due to exit command , and we assign stageResult as false , so that we need to execute STAGE3"
+                catchError(buildResult:'SUCCESS',stageResult:'FAILURE') { 
                     sh 'exit 1' 
                 }    
             }
