@@ -1,4 +1,4 @@
-boolean stageResult  = true
+boolean stageResult = true
 pipeline {
     agent any
     stages {
@@ -20,14 +20,10 @@ pipeline {
         }
         stage ('STAGE3') {
             when {
-                stageResult = false
+                stageResult == false
             }
             steps {
-                script {
-                    if (stageResult == false) {
-                        echo 'STAGE1 is failed, hence execution of STAGE 3 successful'
-                    }
-                }
+                echo 'STAGE1 is failed, hence STAGE3 is executed'
             }
         }
     }
