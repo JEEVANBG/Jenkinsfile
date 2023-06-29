@@ -41,7 +41,7 @@ pipeline {
                 
             }
             steps {
-                echo 'STAGE1 is failed, hence STAGE3 is executed'
+                echo 'STAGE1 is failed, STAGE2 failure suppressed by cathError method,hence STAGE3 is executed successfully'
             }
         }
     }
