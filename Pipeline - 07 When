@@ -46,7 +46,7 @@ pipeline {
         }
     }
     post {
-        SUCCESS {
+        success {
             echo 'All stages are executed successfully'
         }
     }
