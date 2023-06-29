@@ -27,7 +27,7 @@ pipeline {
         }
         stage ('STAGE3') {
             when {
-                script {
+                expression {
                     stageResult == false
                 }
                 
