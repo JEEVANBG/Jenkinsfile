@@ -27,8 +27,8 @@ pipeline {
         }
         stage ('STAGE3') {
             when {
-                stageResult == false  
-                    }
+                stageResult == false
+            }
             steps {
                 echo 'STAGE1 is failed, hence STAGE3 is executed'
             }
