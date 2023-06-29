@@ -45,4 +45,9 @@ pipeline {
             }
         }
     }
+    post {
+        SUCCESS {
+            echo 'All stages are executed successfully'
+        }
+    }
 }
