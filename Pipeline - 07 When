@@ -6,10 +6,11 @@ pipeline {
             steps {
                 echo "STAGE1 execution is failed due to exit command , and we assign stageResult as false , so that we need to execute STAGE3"
                 sh 'exit 1' 
+                script {
+                    stageResult = false
+                }
             }
-            script {
-                stageResult = false
-            }
+            
         }
         stage ('STAGE2') {
             steps {
