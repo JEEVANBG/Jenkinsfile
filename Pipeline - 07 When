@@ -1,0 +1,34 @@
+boolean stageResult  = true
+pipeline {
+    agent any
+    stages {
+        stage ('STAGE1') {
+            steps {
+                sh 'exit 1'
+                echo "STAGE1 execution is failed due to exit command , and we assign stageResult as false , so that we need to execute STAGE3"
+                stageResult= false
+            }
+        }
+        stage ('STAGE2') {
+            steps {
+                script {
+                    if (stageResult == true) {
+                        echo 'STAGE1 is failed, hence STAGE 2 also failed'
+                    }
+                }
+            }
+        }
+        stage ('STAGE3') {
+            when {
+                stageResult= False
+            }
+            steps {
+                script {
+                    if (stageResult == false) {
+                        echo 'STAGE1 is failed, hence execution of STAGE 3 successful'
+                    }
+                }
+            }
+        }
+    }
+}
