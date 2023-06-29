@@ -24,10 +24,11 @@ pipeline {
         }
         stage ('STAGE2') {
             steps {
-                catchError(buildResult:'SUCCESS',stageResult:'FAILURE')
-                script {
-                    if (stageResult == true) {
-                        echo 'STAGE1 is failed, hence STAGE 2 also failed'
+                catchError(buildResult:'SUCCESS',stageResult:'FAILURE') {
+                    script {
+                        if (stageResult == true) {
+                            echo 'STAGE1 is failed, hence STAGE 2 also failed'
+                        }
                     }
                 }
             }
