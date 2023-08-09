@@ -4,4 +4,11 @@
 
 2. namespaces
       Namespaces, isolate various process elements, creating separate environments that prevent them from accessing or affecting other processes or the host system. Different types, such as mount, PID, and network, isolate different process aspects. In addition, they are often combined with cgroups to provide isolation and resource management for containers.
-      The key feature of namespaces is that they isolate processes from each other. On a server where you are running many different services, isolating each service and its associated processes from other services
+      The key feature of namespaces is that they isolate processes from each other. On a server where you are running many different services, isolating each service and its associated processes from other services.
+
+3. environment
+      In computer operating systems, an environment is an area that contains information about the behaviour of programs and applications.        Linux environment variables are used by applications to get information about the environment, and each environment variable is a variable with a name and an associated value.
+  some examples of environment variables in Linux:
+      USER – This points to the currently logged-in user. 
+      HOME – This shows the home directory of the current user.
+      SHELL – This stores the path of the current user's shell, such as bash or zsh.
