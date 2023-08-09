@@ -1,0 +1,7 @@
+1. cgroups
+      cgroups and namespaces are powerful tools for managing resources and isolating processes in Linux systems.
+      cgroups, or control groups, are a Linux kernel feature that enables the management and limitation of system resources like CPU, memory, and network bandwidth, among others. We can use cgroups to set limits on these resources and distribute them among different groups of processes.
+
+2. namespaces
+      Namespaces, isolate various process elements, creating separate environments that prevent them from accessing or affecting other processes or the host system. Different types, such as mount, PID, and network, isolate different process aspects. In addition, they are often combined with cgroups to provide isolation and resource management for containers.
+      The key feature of namespaces is that they isolate processes from each other. On a server where you are running many different services, isolating each service and its associated processes from other services
