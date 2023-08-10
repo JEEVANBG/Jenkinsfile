@@ -352,4 +352,80 @@ The default location of docker volume is /var/lib/docker/volumes/<volume_name>
              To test create a file in the container 
              while true; do echo "Dummy data" >> test.txt; done
 
+- Docker networking 
+    Publish 
+    Publish will bind the container application port to the host machine port so that 
+    we can access from the outside world with the host machine port.
+
+    Publish = port mapping of container to host machine + Expose 
+    
+    To publish a port         
+        docker run -p <host_port>:<container_port>
+    
+    To publish all the exposed ports 
+        docker run -P 
+        -P publish_all, It binds all the exposed ports of the container to the host machine. 
+    
+    To map a direct IP address to the host 
+        port to port 
+            docker run -p <ip>:<host_port>:<container_port>    
+        Any to port 
+            docker run -p <ip>:<container_port>    
+    
+    Range of ports 
+        many to many 
+            docker run -p 8080-8085:8086-8090
+            Note: The total number of host ports in the range should be the same as the container port range
+        many to one
+            docker run -p 8080-8090:8080
+            This will map to any one of the host ports which is free
+
+    Docker network types 
+    1. Bridge 
+        - This is a private internal network created by docker on the host machine 
+          by name docker0    
+        - This is the default network type for all the containers which are created 
+         without any network configurations.
+        - By default, all the containers in the same bridge can communicate with 
+          each other without any extra configuration.    
+        - We cannot use container name for communication only IP address is allowed in 
+          default bridge.
+
+        Custom bridge 
+            To create a bridge network 
+                docker network create --driver bridge my_bride 
+            
+            - In custom bridge containers can communicate with each other with container 
+              name and also with the IP address.
+    
+    Host           
+        - This driver removes the network isolation between the docker and the host.
+        - The containers are directly connected to the host machine network without  
+          the extra layer of any docker network.
+        - Shares the same TCP.IP stack and the same namespace as the host machine.  
+        - All the network interfaces which are there in the host machine are 
+          accessible by this container.
+
+        Network Namespace Sharing: The container shares the same network namespace as the host. It can directly access the network interfaces and services available on the host without any additional isolation.
+        
+        Port Binding: Ports exposed by the container are directly bound to the host's network interfaces. This means that services running within the container can be accessed on the same ports as if they were running on the host.
+        
+        Host's IP Address: The container uses the host's IP address, making it appear as if the container's services are running on the host itself.
+
+   None 
+        - Containers are not attached to any network by docker.
+        - All the required network configurations need to be done 
+          manually.
+        - The host or any other containers won't be able to communicate 
+          with this container until a custom network is configured.
+        USE CASE:
+        Running a container for debugging purposes where network access is not needed.
+        Creating a container for building or compiling code that doesn't require internet access.
+        Running a container that acts as a data volume container, where network communication is unnecessary.
+
+    Overlay 
+        - Overlay networks are meant to define network communication of containers hosted on different host machines. 
+        - To create such a network we use the ‘overlay’ driver. 
+        - The overlay driver is a native driver by docker that helps to create a single layer2 broadcast domain across containers 
+          hosted on multiple Docker host machines. 
 
