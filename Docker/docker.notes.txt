@@ -161,6 +161,54 @@ DOCKER COMMANDS
     After running the containers by using the current image you can make the updates to the containers by interacting with the containers from that containers you can create an image by using the following commands.
 
     docker commit container_name_or_id new_image_name:tag
-    
+
+-----Running Commands----
+
+- Method 1: Using Bash
+    You can directly access the bash of the Docker Container and execute commands there. It’s very easy to launch the bash of the Container and you can do so using this command.
+
+    sudo docker run -it ubuntu bash
+    The above command runs an Ubuntu Container and fires up its bash.
+
+- Method 2: Using the Docker exec Command
+    In order to run a command inside a Docker Container using the exec command, you have to know the Container Id of the Docker Container. You can get the Container Id using the following Command.
+
+    sudo docker container ls
+            or 
+    sudo docker ps -a
+
+    Once you have the Container ID, you can use the Docker exec command. But you have to confirm that the Container is running before you can execute the exec command. To start the Container, use this command.
+
+    sudo docker start d64b00529582
+    After that, execute the exec command.
+
+    sudo docker exec -it d64b00529582 echo "GeeksforGeeks"
+
+- Method 3: By using the Dockerfile
+    When you are creating a large application, it is always advised that you execute your commands by specifying it inside the Dockerfile. However, you should only include those commands inside the Dockerfile which you want to execute while building the Container. For executing commands on the go, you can use any of the two methods above. To execute commands through Dockerfile, you can specify them using the Docker Run Commands.
+
+    FROM ubuntu:latest
+    RUN echo "geeksforgeeks"
+    After you have created the above Dockerfile, you can build the images using the Docker build command.
+
+    sudo docker build -t sample-image .
+
+------Docker – USER Instruction------
+
+- Step 1: Create the Dockerfile
+    FROM ubuntu:latest
+    RUN apt-get -y update
+    RUN groupadd -r user && useradd -r -g user user
+    USER user
+
+- Step 2: Build the Docker Image
+    After creating the Dockerfile, we can now create the Docker Image using the Build command.
+
+    sudo docker build -t user-demo .
+
+- Step 3: Run the Docker Container
+    Use the Docker Run command to run the Container.
+
+    sudo docker run -it user-demo bash
 
 
