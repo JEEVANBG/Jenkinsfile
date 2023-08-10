@@ -12,6 +12,12 @@ Docker container:
 
 Docker network:
     Docker networking enables a user to link a Docker container to as many networks as he/she requires. Docker networking is primarily used to establish communication between Docker containers and the outside world via the host machine where the Docker daemon is running.
+    The Docker network is a virtual network created by Docker to enable communication between Docker containers. If two containers are running on the same host they can communicate with each other without the need for ports to be exposed to the host machine.
+
+Types of Network Drivers
+    - bridge: If you build a container without specifying the kind of driver, the container will only be created in the bridge network, which is the default network. 
+    - host: Containers will not have any IP address they will be directly created in the system network which will remove isolation between the docker host and containers. 
+    - none: IP addresses won’t be assigned to containers. These containments are not accessible to us from the outside or from any other container.
 
 States of container / Lifecycle of container:
     1. Created - if a container is newly created and the container is not yet started.
@@ -35,3 +41,20 @@ Docker CLI
     
 Docker Objects 
     - Images, Containers, Networks, Volumes
+
+Benefits of Docker:
+    Flexible: Complex applications can be divided and containerized into small components called microservices
+
+    Lightweight: Containers share the machine’s OS system kernel and therefore do not require an OS per application, driving higher server efficiencies and reducing server and licensing costs
+
+    portable:  we can build images anywhere and then deploy them to the cloud, and run them anywhere.    
+
+    Isolation: Docker containers offer a portable, isolated environment for software to execute in, making sure that each container runs without interfering with the operations of other containers or the host system.
+
+    Resource Efficiency: When compared to running separate virtual machines (VMs), containers share the host system's kernel, which lowers overhead. This increases the resource efficiency of Docker and allows for a higher application density on a single host.
+
+    DevOps Integration: Docker supports seamless integration of development and operations (DevOps) workflows. Developers can use the same environment throughout the development and deployment lifecycle, leading to smoother collaboration.
+
+    Continuous Integration and Continuous Deployment (CI/CD): By providing dependable and consistent builds, testing, and deployments, Docker streamlines CI/CD pipelines. Containers are simple to include in CI/CD workflows, resulting in quicker feedback and delivery cycles.
+
+
