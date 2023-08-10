@@ -19,6 +19,9 @@ Types of Network Drivers
     - host: Containers will not have any IP address they will be directly created in the system network which will remove isolation between the docker host and containers. 
     - none: IP addresses won’t be assigned to containers. These containments are not accessible to us from the outside or from any other container.
 
+Docker volume:
+    A Docker volume is an independent file system entirely managed by Docker and exists as a normal file or directory on the host, where data is persisted. 
+
 States of container / Lifecycle of container:
     1. Created - if a container is newly created and the container is not yet started.
     2. Running - A currently running container. It means there is no problem 
@@ -56,5 +59,7 @@ Benefits of Docker:
     DevOps Integration: Docker supports seamless integration of development and operations (DevOps) workflows. Developers can use the same environment throughout the development and deployment lifecycle, leading to smoother collaboration.
 
     Continuous Integration and Continuous Deployment (CI/CD): By providing dependable and consistent builds, testing, and deployments, Docker streamlines CI/CD pipelines. Containers are simple to include in CI/CD workflows, resulting in quicker feedback and delivery cycles.
+
+
 
 
