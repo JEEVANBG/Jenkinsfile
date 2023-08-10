@@ -2,4 +2,13 @@ Docker:
     Docker is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers.
       
 Dockerfile:
-      Dockerfile is a text document containing all the commands the user requires to call on the command line to assemble an image. 
+    Dockerfile is a text document containing all the commands the user requires to call on the command line to assemble an image. 
+
+Docker Image:
+    A Docker image is a file used to execute code in a Docker container. Docker images act as a set of instructions to build a Docker container, like a template.
+
+Docker container:
+    A container is an isolated environment for your code. containers have everything that the software needs to run including libraries, system tools, code, and runtime.
+
+Docker network:
+    Docker networking enables a user to link a Docker container to as many networks as he/she requires. Docker networking is primarily used to establish communication between Docker containers and the outside world via the host machine where the Docker daemon is running.
