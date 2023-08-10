@@ -12,3 +12,26 @@ Docker container:
 
 Docker network:
     Docker networking enables a user to link a Docker container to as many networks as he/she requires. Docker networking is primarily used to establish communication between Docker containers and the outside world via the host machine where the Docker daemon is running.
+
+States of container / Lifecycle of container:
+    1. Created - if a container is newly created and the container is not yet started.
+    2. Running - A currently running container. It means there is no problem 
+                 with the container to run the process.
+    3. Exited - A container ran and completed execution with failure.
+    4. paused - A container whose process has been paused. (we can unpause the container)
+    5. Dead - if the docker daemon tried and failed to stop a container (host ram full)
+    6. Restarting - the container will be in the phase of restarting the main process.
+
+Docker Architecture:
+Docker Daemon 
+    - A background process that manages docker images, containers, network, and volumes.
+    - This Daemon constantly listens for docker API requests and processes them.
+    
+Docker REST API 
+    - API which is used by applications to interact with the docker daemon. 
+        
+Docker CLI 
+    - It is a command line interface for interacting with the docker daemon through REST API.
+    
+Docker Objects 
+    - Images, Containers, Networks, Volumes
