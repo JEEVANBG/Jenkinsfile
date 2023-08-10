@@ -1,0 +1,5 @@
+Docker:
+    Docker is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers.
+      
+Dockerfile:
+      Dockerfile is a text document containing all the commands the user requires to call on the command line to assemble an image. 
