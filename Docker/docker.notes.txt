@@ -61,6 +61,7 @@ Benefits of Docker:
     Continuous Integration and Continuous Deployment (CI/CD): By providing dependable and consistent builds, testing, and deployments, Docker streamlines CI/CD pipelines. Containers are simple to include in CI/CD workflows, resulting in quicker feedback and delivery cycles.
 
 DOCKER COMMANDS
+------Docker – Instruction Commands-------
 - Docker Run
     This command is used to run a container from an image. The docker run command is a combination of the docker create and docker start commands. It creates a new container from the image specified and starts that container. if the docker image is not present, then the docker run pulls that.
 
