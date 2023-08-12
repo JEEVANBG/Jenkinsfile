@@ -24,7 +24,9 @@ How domain registration works:
 
       You register the domain name with Route 53. When you register a domain, you provide names and contact information for the domain owner and other contacts.
 
-      When you register a domain with Route 53, the service automatically makes itself the DNS service for the domain by doing the following:
+      A public hosted zone is a container that holds information about how you want to route traffic on the internet for a specific domain, such as example.com, and its subdomains (acme.example.com, zenith.example.com). You get a public hosted zone in one of two ways:
+
+      When you register a domain with Route 53, we create a hosted zone for you automatically.
         * Creates a hosted zone that has the same name as your domain
         * Assigns a set of four name servers to the hosted zone. When someone uses a browser to access your website, such as www.example.com, these name servers tell the browser where to find your resources, such as a web server
         * Gets the name servers from the hosted zone and adds them to the domain.
@@ -39,3 +41,31 @@ Hosted Zone:
 
     A private hosted zone only responds to queries coming from within the associated VPC and it is not used for hosting a website that need to be publicly accessed. The main use case of a private hosted zone is split-view DNS.
 
+DNS Root Name Server:
+   Root servers are DNS nameservers that operate in the root zone. These servers can directly answer queries for records stored or cached within the root zone, and they can also refer other requests to the appropriate Top Level Domain (TLD) server. 
+
+TLD Name Server:
+   A TLD nameserver maintains information for all the domain names that share a common domain extension, such as .com, . net
+
+1. A user opens a web browser, enters www.example.com in the address bar, and presses Enter.
+
+2. The request for www.example.com is routed to a DNS resolver, which is typically managed by the user's internet service provider (ISP), such as a cable internet provider, a DSL broadband provider, or a corporate network.
+
+3. The DNS resolver for the ISP forwards the request for www.example.com to a DNS root name server.
+
+4. The DNS resolver forwards the request for www.example.com again, this time to one of the TLD name servers for .com domains. The name server for .com domains responds to the request with the names of the four Route 53 name servers that are associated with the example.com domain.
+
+The DNS resolver caches (stores) the four Route 53 name servers. The next time someone browses to example.com, the resolver skips steps 3 and 4 because it already has the name servers for example.com. The name servers are typically cached for two days.
+
+5. The DNS resolver chooses a Route 53 name server and forwards the request for www.example.com to that name server.
+
+6. The Route 53 name server looks in the example.com hosted zone for the www.example.com record, gets the associated value, such as the IP address for a web server, 192.0.2.44, and returns the IP address to the DNS resolver.
+
+7. The DNS resolver finally has the IP address that the user needs. The resolver returns that value to the web browser.
+
+Note
+The DNS resolver also caches the IP address for example.com for an amount of time that you specify so that it can respond more quickly the next time someone browses to example.com. For more information, see time to live (TTL).
+
+8. The web browser sends a request for www.example.com to the IP address that it got from the DNS resolver. This is where your content is, for example, a web server running on an Amazon EC2 instance or an Amazon S3 bucket that's configured as a website endpoint.
+
+9. The web server or other resource at 192.0.2.44 returns the web page for www.example.com to the web browser, and the web browser displays the page.
