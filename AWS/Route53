@@ -18,7 +18,7 @@ When a user opens a web browser and enters your domain name (example.com) or sub
 Route 53 sends automated requests over the internet to a resource, such as a web server, to verify that it's reachable, available, and functional. You also can choose to receive notifications when a resource becomes unavailable and choose to route internet traffic away from unhealthy resources.
 
 
-*******************************************Extra content*************************************
+*******************************************Extra content**************************************
 How domain registration works:
     1. You choose a domain name and confirm that it's available, meaning that no one else has registered the domain name that you want.
 
