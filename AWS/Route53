@@ -36,3 +36,6 @@ Hosted Zone:
     Is a container for records, which include information about how to route traffic for a domain (such as example.com) and all of its subdomains (such as www.example.com, retail.example.com, and seattle.accounting.example.com).
 
     A public hosted zone describes how you want to route traffic for the domain in the public internet while a private hosted zone defines how you want to route traffic in a private AWS VPC.
+
+    A private hosted zone only responds to queries coming from within the associated VPC and it is not used for hosting a website that need to be publicly accessed. The main use case of a private hosted zone is split-view DNS.
+
