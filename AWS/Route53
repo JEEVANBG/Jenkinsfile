@@ -1,21 +1,24 @@
  what is Amazon Route 53:
-    In technical terms. AWS Route 53 lets developers and organizations route end users to their web applications in a very reliable and cost-effective manner. It is a Domain Name System (DNS) that translates domain names into IP addresses to direct traffic to your website. In simple terms, it converts World Wide Web addresses like www.example.com to IP addresses like 10.20.30.40.
+    - AWS Route 53 lets developers and organizations route end users to their web applications in a very reliable and cost-effective             manner. 
+    - It is a Domain Name System (DNS) that translates domain names into IP addresses to direct traffic to your website. 
+    - In simple terms, it converts World Wide Web addresses like www.example.com to IP addresses like 10.20.30.40.
 
-    Basically, domain queries are automatically routed to the nearest DNS server to provide the quickest response possible. If you use a web hosting company like GoDaddy, it takes 30 minutes to 24 hours to remap a domain to a different IP, but by using Route 53 in AWS it takes only a few minutes.
+      Basically, domain queries are automatically routed to the nearest DNS server to provide the quickest response possible. If you use a web hosting company like GoDaddy, it takes 30 minutes to 24 hours to remap a domain to a different IP, but by using Route 53 in AWS it takes only a few minutes.
 
-Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service. You can use Route 53 to perform three main functions in any combination: domain registration, DNS routing, and health checking.
+     - Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service. 
+       You can use Route 53 to perform three main functions in any combination: domain registration, DNS routing, and health checking.
 
-DNS, or the Domain Name System:
-    translates human readable domain names (for example, www.amazon.com) to machine readable IP addresses (for example, 192.0.2.44).
+DNS or the Domain Name System:
+    It translates human readable domain names (for example, www.amazon.com) to machine readable IP addresses (for example, 192.0.2.44).
 
 1. Register domain names
-Your website needs a name, such as example.com. Route 53 lets you register a name for your website or web application, known as a domain name.
+     Your website needs a name, such as example.com. Route 53 lets you register a name for your website or web application, known as a domain name.
 
 2. Route internet traffic to the resources for your domain
-When a user opens a web browser and enters your domain name (example.com) or subdomain name (acme.example.com) in the address bar, Route 53 helps connect the browser with your website or web application.
+     When a user opens a web browser and enters your domain name (example.com) or subdomain name (acme.example.com) in the address bar, Route 53 helps connect the browser with our website or web application.
 
 3. Check the health of your resources
-Route 53 sends automated requests over the internet to a resource, such as a web server, to verify that it's reachable, available, and functional. You also can choose to receive notifications when a resource becomes unavailable and choose to route internet traffic away from unhealthy resources.
+     Route 53 sends automated requests over the internet to a resource, such as a web server, to verify that it's reachable, available, and functional. You also can choose to receive notifications when a resource becomes unavailable and choose to route internet traffic away from unhealthy resources.
 
 
 *******************************************Extra content**************************************
@@ -47,7 +50,10 @@ DNS Root Name Server:
    Root servers are DNS nameservers that operate in the root zone. These servers can directly answer queries for records stored or cached within the root zone, and they can also refer other requests to the appropriate Top Level Domain (TLD) server. 
 
 TLD Name Server:
-   A TLD nameserver maintains information for all the domain names that share a common domain extension, such as .com, . net
+   A TLD nameserver maintains information for all the domain names that share a common domain extension, such as .com, . net.
+    The TLD domain servers return the address of the Authoritative DNS servers to the Resolver.
+
+   Route 53 name servers are the authoritative name servers for every domain that uses Route 53 as the DNS service
 
 1. A user opens a web browser, enters www.example.com in the address bar, and presses Enter.
 
