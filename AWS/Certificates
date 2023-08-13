@@ -71,3 +71,7 @@ Similarly, you can use a key management system to encrypt sensitive data before 
 An application programming interface (API) is a set of rules and protocols that enables different software applications to communicate and share data and functionality.
 
 APIs are mechanisms that enable two software components to communicate with each other using a set of definitions and protocols. For example, the weather bureau's software system contains daily weather data. The weather app on your phone “talks” to this system via APIs and shows you daily weather updates on your phone.
+
+**************************** SQS *********************************
+What is SQS used for?
+Amazon Simple Queue Service (Amazon SQS) lets you send, store, and receive messages between software components at any volume, without losing messages or requiring other services to be available.
