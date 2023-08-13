@@ -1,35 +1,56 @@
-Target groups for your Network Load Balancers
-Each target group is used to route requests to one or more registered targets. When you create a listener, you specify a target group for its default action. Traffic is forwarded to the target group specified in the listener rule. You can create different target groups for different types of requests. For example, create one target group for general requests and other target groups for requests to the microservices for your application.
+Load Balancer:
+        A load balancer serves as the single point of contact for clients. Clients send requests to the load balancer, and the load balancer sends them to targets, such as EC2 instances, in one or more Availability Zones.
 
-What is a Network Load Balancer?
+        To configure your load balancer, you create target groups, and then register targets with your target groups. Your load balancer is most effective if you ensure that each enabled Availability Zone has at least one registered target. You also create listeners to check for connection requests from clients and route requests from clients to the targets in your target groups.
 
-Elastic Load Balancing automatically distributes your incoming traffic across multiple targets, such as EC2 instances, containers, and IP addresses, in one or more Availability Zones. It monitors the health of its registered targets, and routes traffic only to the healthy targets. Elastic Load Balancing scales your load balancer as your incoming traffic changes over time. It can automatically scale to the vast majority of workloads.
-
-Elastic Load Balancing supports the following load balancers: Application Load Balancers, Network Load Balancers, Gateway Load Balancers, and Classic Load Balancers. You can select the type of load balancer that best suits your needs. 
-
-A load balancer serves as the single point of contact for clients. Clients send requests to the load balancer, and the load balancer sends them to targets, such as EC2 instances, in one or more Availability Zones.
-
-To configure your load balancer, you create target groups, and then register targets with your target groups. Your load balancer is most effective if you ensure that each enabled Availability Zone has at least one registered target. You also create listeners to check for connection requests from clients and route requests from clients to the targets in your target groups.
+Target groups for your Network Load Balancers:
+      Each target group is used to route requests to one or more registered targets. When you create a listener, you specify a target group for its default action. 
+      Traffic is forwarded to the target group specified in the listener rule. You can create different target groups for different types of requests. For example, create one target group for general requests and other target groups for requests to the microservices for your application.
 
 Listeners for your Network Load Balancers
+      Before you start using your Network Load Balancer, you must add one or more listeners. A listener is a process that checks for connection requests, using the protocol and port that you configure. The rules that you define for a listener determine how the load balancer routes requests to the targets in one or more target groups.
 
-Before you start using your Network Load Balancer, you must add one or more listeners. A listener is a process that checks for connection requests, using the protocol and port that you configure. The rules that you define for a listener determine how the load balancer routes requests to the targets in one or more target groups.
+What is a Network Load Balancer?
+      Elastic Load Balancing automatically distributes your incoming traffic across multiple targets, such as EC2 instances, containers, and IP addresses, in one or more Availability Zones. It monitors the health of its registered targets, and routes traffic only to the healthy targets. Elastic Load Balancing scales your load balancer as your incoming traffic changes over time. It can automatically scale to the vast majority of workloads.
 
-Target groups for your Network Load Balancers
+      Elastic Load Balancing supports the following load balancers:
+          1. Application Load Balancers
+          2. Network Load Balancers
+          3. Gateway Load Balancers and 
+          4. Classic Load Balancers. You can select the type of load balancer that best suits your needs. 
 
-Each target group is used to route requests to one or more registered targets. When you create a listener, you specify a target group for its default action. Traffic is forwarded to the target group specified in the listener rule. You can create different target groups for different types of requests. For example, create one target group for general requests and other target groups for requests to the microservices for your application. For more information, see Network Load Balancer components.
+1. Application Load Balancers :
+      An Application Load Balancer makes routing decisions at the application layer (HTTP/HTTPS) that is 7th layer of OSI model, supports path-based routing, and can route requests to one or more ports on each container instance in your cluster
+      Application Load Balancer, aka ALB, is an Elastic Load Balancer or ELB on AWS. It operates at the application layer (the seventh layer) of the Open Systems Interconnection (OSI) model.
+      ALBs have three components – listeners, load balancer, and the target group. After receiving a request, the load balancer evaluates the listener rules in priority order (to choose which rule to execute). It then selects a target from the target group for the rule action.
+
+2. Network Load Balancers:
+      The Network Load Balancer (NLB) operates at OSI Layer 4 (Transport layer, Connection level). Moreover, NLB supports application load balancing with TLS listeners, TCP, and UDP.
+      Network Load Balancer is a term that is designed to manage unpredictable and inconsistent traffic patterns.
+      NLB just forward requests whereas ALB examines the contents of the HTTP request header to determine where to route the request. So, an ALB support advanced request (content-based) routing.
+      Several well-known AWS services including Auto Scaling, Amazon EC2 Container Service (ECS), Amazon CloudFormation, and AWS Certificate Manager have been linked to it (ACM).
+      NLB was created especially for high-performance traffic that isn’t typical web traffic. While retaining extremely low latencies, NLB can handle millions of queries per second.
 
 
-
-NLB just forward requests whereas ALB examines the contents of the HTTP request header to determine where to route the request. So, an ALB support advanced request (content-based) routing.
-
-What is AWS Network Load Balancer?
-Network Load Balancer is a term that is designed to manage unpredictable and inconsistent traffic patterns.
-
-Several well-known AWS services including Auto Scaling, Amazon EC2 Container Service (ECS), Amazon CloudFormation, and AWS Certificate Manager have been linked to it (ACM).
-
-The Network Load Balancer (NLB) operates at OSI Layer 4 (Transport layer, Connection level). Moreover, NLB supports application load balancing with TLS listeners, TCP, and UDP.
-
-NLB was created especially for high-performance traffic that isn’t typical web traffic. While retaining extremely low latencies, NLB can handle millions of queries per second.
+Sticky Sessions:
+      Sticky sessions allow requests from the same client to be routed to the same target using cookies. We can set up sticky sessions easily by simply enabling sticky sessions and cookies in the ALB attributes. Application Load Balancer(ALB) supports both duration-based cookies and application-based cookies.
 
 
+Key Differences: ALB vs NLB 
+      - OSI Layer: Application Load Balancer (as the name implies) works at the Application Layer (Layer 7 of the OSI model, Request level). Network Load Balancer works at the Transport layer (Layer 4 of the OSI model, Connection level).
+Routing: NLB just forward requests whereas ALB examines the contents of the HTTP request header to determine where to route the request. So, an ALB support advanced request (content-based) routing.
+      - Static IP: ALB doesn’t provide support for static IP addresses whereas NLB provides support for zonal static IP addresses (in each AZ).
+      - PrivateLink (Endpoint services): NLB provides support for PrivateLink with VPC Endpoints Service integration whereas ALB doesn’t support PrivateLink. Only NLB can be used directly as PrivateLink.
+
+Elastic Load Balancing now supports forwarding traffic directly from NLB to ALB. With this feature, you can now use AWS PrivateLink and expose static IP addresses for applications built on ALB.
+
+Use Cases
+Choose ALB if:
+      Application Load Balancer is best suited for load balancing of HTTP and HTTPS traffic and provides advanced request routing targeted at the delivery of modern application architectures, including microservices and containers.
+Applications need advanced routing (host-based, URL-based, query string based).
+Run multiple services (microservices) behind a single load balancer.
+
+Choose NLB if:
+      Network Load Balancer is best suited for load balancing of TCP traffic where extreme performance is required. It is capable of handling millions of requests per second while maintaining ultra-low latencies, and it is optimized to handle sudden and volatile traffic patterns.
+      You want to share/expose your services (e.g. SaaS services) to other consumers in different VPCs using PrivateLink VPC Endpoint.
+      You need a static IP address that can be used by applications as the front-end IP of the load balancer.
