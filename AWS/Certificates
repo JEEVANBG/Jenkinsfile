@@ -3,34 +3,32 @@ AWS Certificate Manager :
       SSL/TLS certificates are used to protect network connections and establish the identity of websites on the Internet as well as resources on private networks. 
       AWS Certificate Manager automates the time-consuming manual process of purchasing, uploading, and renewing SSL/TLS certificates.
 
-SSL/TLS stands for secure sockets layer and transport layer security. It is a protocol or communication rule that allows computer systems to talk to each other on the internet safely. SSL/TLS certificates allow web browsers to identify and establish encrypted network connections to web sites using the SSL/TLS protocol.
+      SSL/TLS stands for secure sockets layer and transport layer security. It is a protocol or communication rule that allows computer systems to talk to each other on the internet safely. SSL/TLS certificates allow web browsers to identify and establish encrypted network connections to web sites using the SSL/TLS protocol.
 
-SSL/TLS certificates are used to authenticate the identity of a website and create a secure connection between the web server and a browser. 
+      SSL/TLS certificates are used to authenticate the identity of a website and create a secure connection between the web server and a browser. 
 
 There are three recognized categories of SSL certificate types:
-
-Extended Validation (EV)
-Organization Validation (OV)
-Domain Validation (DV)
+1. Extended Validation (EV)
+2. Organization Validation (OV)
+3. Domain Validation (DV)
 
 Goddady
 What is an SSL certificate?
-An SSL (Secure Sockets Layer) certificate is a digital certificate that authenticates the identity of a website and encrypts information sent to the server using SSL technology. Encryption is the process of scrambling data into an undecipherable format that can only be returned to a readable format with the proper decryption key.
+      An SSL (Secure Sockets Layer) certificate is a digital certificate that authenticates the identity of a website and encrypts information sent to the server using SSL technology. Encryption is the process of scrambling data into an undecipherable format that can only be returned to a readable format with the proper decryption key.
 
-A certificate serves as an electronic "passport" that establishes an online entity's credentials when doing business on the Web. When an Internet user attempts to send confidential information to a Web server, the user's browser accesses the server's digital certificate and establishes a secure connection.
+      A certificate serves as an electronic "passport" that establishes an online entity's credentials when doing business on the Web. When an Internet user attempts to send confidential information to a Web server, the user's browser accesses the server's digital certificate and establishes a secure connection.
 
 An SSL certificate contains the following information:
-
-The certificate holder's name
-The certificate's serial number and expiration date
-A copy of the certificate holder's public key
-The digital signature of the certificate-issuing authority
+      - The certificate holder's name
+      - The certificate's serial number and expiration date
+      - A copy of the certificate holder's public key
+      - The digital signature of the certificate-issuing authority
 
 What is the maximum life of SSL certificate?
-397 days
-TLS/SSL certificates cannot be issued for more than 13 months (397 days), as announced by popular browsers, like Google and Apple at CA/Browser Forum in March 2020.
+      397 days
+      TLS/SSL certificates cannot be issued for more than 13 months (397 days), as announced by popular browsers, like Google and Apple at CA/Browser Forum in March 2020.
 
-SSL stands for Secure Socket Layer while TLS stands for Transport Layer Security. Both Secure Socket Layer and Transport Layer Security are the protocols used to provide security between web browsers and web servers. The main difference between Secure Socket Layer and Transport Layer Security is that, in SSL (Secure Socket Layer), the Message digest is used to create a master secret and It provides the basic security services which are Authentication and confidentiality. while In TLS (Transport Layer Security), a Pseudo-random function is used to create a master secret. 
+      SSL stands for Secure Socket Layer while TLS stands for Transport Layer Security. Both Secure Socket Layer and Transport Layer Security are the protocols used to provide security between web browsers and web servers. The main difference between Secure Socket Layer and Transport Layer Security is that, in SSL (Secure Socket Layer), the Message digest is used to create a master secret and It provides the basic security services which are Authentication and confidentiality. while In TLS (Transport Layer Security), a Pseudo-random function is used to create a master secret. 
 
 SSL is technology your applications or browsers may have used to create a secure, encrypted communication channel over any network. However, SSL is an older technology that contains some security flaws. Transport Layer Security (TLS) is the upgraded version of SSL that fixes existing SSL vulnerabilities.
 
