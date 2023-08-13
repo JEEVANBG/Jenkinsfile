@@ -54,3 +54,23 @@ Choose NLB if:
       Network Load Balancer is best suited for load balancing of TCP traffic where extreme performance is required. It is capable of handling millions of requests per second while maintaining ultra-low latencies, and it is optimized to handle sudden and volatile traffic patterns.
       You want to share/expose your services (e.g. SaaS services) to other consumers in different VPCs using PrivateLink VPC Endpoint.
       You need a static IP address that can be used by applications as the front-end IP of the load balancer.
+
+1. Stateless Protocol: 
+        Stateless Protocols are the type of network protocols in which Client send request to the server and server response back according to current state. It does not require the server to retain session information or a status about each communicating partner for multiple request. 
+
+        HTTP (Hypertext Transfer Protocol), UDP (User Datagram Protocol), DNS (Domain Name System) are the example of Stateless Protocol. 
+
+Salient features of Stateless Protocols: 
+        - Stateless Protocol simplify the design of Server.
+        - The stateless protocol requires less resources because system do not need to keep track of the multiple link communications and the session details.
+        - In Stateless Protocol each information packet travel on it’s own without reference to any other packet.
+        -Each communication in Stateless Protocol is discrete and unrelated to those that precedes or follow.
+
+2. Stateful Protocol: 
+        In Stateful Protocol If client send a request to the server then it expects some kind of response, if it does not get any response then it resend the request. FTP (File Transfer Protocol), TCP, and Telnet are the example of Stateful Protocol. 
+
+Salient features of Stateful Protocol: 
+        - Stateful Protocols provide better performance to the client by keeping track of the connection information.
+        - Stateful Application require Backing storage.
+        - Stateful request are always dependent on the server-side state.
+        - TCP session follow stateful protocol because both systems maintain information about the session itself during its life.
