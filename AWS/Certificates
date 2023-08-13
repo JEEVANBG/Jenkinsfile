@@ -1,0 +1,4 @@
+AWS Certificate Manager :
+      AWS Certificate Manager is a service that allows you to easily issue, manage, and deploy public and private Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificates for usage with AWS services and internally connected resources.
+      SSL/TLS certificates are used to protect network connections and establish the identity of websites on the Internet as well as resources on private networks. 
+      AWS Certificate Manager automates the time-consuming manual process of purchasing, uploading, and renewing SSL/TLS certificates.
