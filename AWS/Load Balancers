@@ -19,3 +19,17 @@ Target groups for your Network Load Balancers
 
 Each target group is used to route requests to one or more registered targets. When you create a listener, you specify a target group for its default action. Traffic is forwarded to the target group specified in the listener rule. You can create different target groups for different types of requests. For example, create one target group for general requests and other target groups for requests to the microservices for your application. For more information, see Network Load Balancer components.
 
+
+
+NLB just forward requests whereas ALB examines the contents of the HTTP request header to determine where to route the request. So, an ALB support advanced request (content-based) routing.
+
+What is AWS Network Load Balancer?
+Network Load Balancer is a term that is designed to manage unpredictable and inconsistent traffic patterns.
+
+Several well-known AWS services including Auto Scaling, Amazon EC2 Container Service (ECS), Amazon CloudFormation, and AWS Certificate Manager have been linked to it (ACM).
+
+The Network Load Balancer (NLB) operates at OSI Layer 4 (Transport layer, Connection level). Moreover, NLB supports application load balancing with TLS listeners, TCP, and UDP.
+
+NLB was created especially for high-performance traffic that isn’t typical web traffic. While retaining extremely low latencies, NLB can handle millions of queries per second.
+
+
