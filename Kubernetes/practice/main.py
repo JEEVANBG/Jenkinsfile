@@ -15,7 +15,7 @@ def health_check():
 
 @app.route('/name')
 def print_name():
-    return 'Harsha Jain'
+    return 'Jeevan B G'
 
 if __name__ == '__main__':
   app.run(host="0.0.0.0", port="8080")
