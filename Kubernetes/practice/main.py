@@ -19,6 +19,4 @@ def print_name():
 
 if __name__ == '__main__':
   app.run(host="0.0.0.0", port="8080")
-
-
 #here we use port 8080 for accessing..
