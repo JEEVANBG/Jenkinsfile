@@ -74,3 +74,9 @@ Salient features of Stateful Protocol:
         - Stateful Application require Backing storage.
         - Stateful request are always dependent on the server-side state.
         - TCP session follow stateful protocol because both systems maintain information about the session itself during its life.
+
+Path-based routing:
+        Path-based routing is also referred to as URL-based routing. The Application load balancer will forward the requests to the specific targets based on the Rules configured in the load balancer.
+
+Host-based routing: 
+        In Host-based routing, incoming traffic is routed on the basis of the domain name or host name given in the Host Header.
