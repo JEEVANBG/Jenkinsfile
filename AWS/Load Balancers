@@ -80,3 +80,33 @@ Path-based routing:
 
 Host-based routing: 
         In Host-based routing, incoming traffic is routed on the basis of the domain name or host name given in the Host Header.
+
+Network Load Balancer (NLB):
+        Network Load Balancer is a layer 4 load balancer. It load balances incoming connections. When a client opens a connection to the load balancer, it opens a connection to a backend target and forwards all packets from the client to the target.
+
+Application Load Balancer (ALB):
+        Application Load Balancer is a layer 7 load balancer. It loads and balances HTTP requests. When a client opens a connection to the load balancer, ALB reads and identifies HTTP requests and distributes the HTTP requests across backend targets according to your rules.
+
+Now, let's take a closer look at the key features and capabilities of each load balancer:
+ALB Features
+1. Application Load Balancer (ALB) Content-based routing: As mentioned above, one of the key features of ALB is the ability to route traffic based on the content of the request. This means that you can use ALB to route traffic to different target groups based on the path, host header, or other request attributes.
+
+2. Protocol support : ALB supports a wide range of protocols, including HTTP, HTTPS, TCP, and SSL. This makes it a good choice for applications that use a variety of protocols.
+
+3. Health checks : ALB includes built-in health checks that allow it to automatically route traffic away from unhealthy targets. You can customize the health check parameters to fit your specific needs.
+
+4. Container support: ALB is fully compatible with containerized applications and can route traffic to Amazon Elastic Container Service (ECS) tasks and Amazon Elastic Kubernetes Service (EKS) pods.
+
+5. SSL offloading: ALB can offload the SSL termination process from your targets, which can help to improve the performance of your application.
+
+NLB Features
+1. Network Load Balancer (NLB) Performance: NLB is designed for high performance and can handle millions of requests per second. It uses a connection-based routing algorithm that ensures that traffic is evenly distributed across targets.
+
+2. Protocol support: NLB supports TCP, TLS, and UDP protocols. It is particularly well-suited for applications that require low latency and high throughputs, such as gaming and media streaming.
+
+3. Health checks: NLB includes built-in health checks that allow it to automatically route traffic away from unhealthy targets. You can customize the health check parameters to fit your specific needs.
+
+4. Container support: NLB is fully compatible with containerized applications and can route traffic to Amazon ECS tasks and Amazon EKS pods.
+
+5. Cross-zone load balancing: NLB automatically distributes incoming traffic evenly across all available targets in all enabled availability zones. This helps to ensure that your application remains available even if an entire availability zone goes offline.
+
