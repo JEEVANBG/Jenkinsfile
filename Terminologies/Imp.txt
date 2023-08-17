@@ -12,3 +12,6 @@
       USER – This points to the currently logged-in user. 
       HOME – This shows the home directory of the current user.
       SHELL – This stores the path of the current user's shell, such as bash or zsh.
+
+4. Network protocols
+      Network protocols are a set of rules outlining how connected devices communicate across a network to exchange information easily and safely. 
