@@ -26,3 +26,6 @@ HTTPS is an extension of the Hypertext Transfer Protocol (HTTP). It is used for 
 
       - TELNET(Terminal Network)
 TELNET is a standard TCP/IP protocol used for virtual terminal service given by ISO. This enables one local machine to connect with another. The computer which is being connected is called a remote computer and which is connecting is called the local computer. TELNET operation lets us display anything being performed on the remote computer in the local computer. This operates on the client/server principle. The local computer uses the telnet client program whereas the remote computer uses the telnet server program.
+
+A-type Record DNS:
+      A records are standard DNS records while Alias records are custom DNS records. One of the significant differences between an A record and an Alias record is that the A record points a domain name to an IP address. In contrast, an Alias record is used when you want a domain name to point to another domain name
