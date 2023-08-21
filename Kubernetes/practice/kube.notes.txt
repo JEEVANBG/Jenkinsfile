@@ -2,3 +2,24 @@ Probes:
       - Kubernetes provides probes (health checks) to monitor and act on the state of Pods (Containers).
       - And to make sure only healthy Pods serve traffic. 
       - With help of Probes, we can control when a pod should be deemed started, ready for service, or live to serve traffic.
+
+Probes are used to detect:
+      - Containers that haven’t started yet and can’t serve traffic.
+      - Containers that are overwhelmed and can’t serve additional traffic.
+      - Containers that are completely dead and not serving any traffic.
+
+Types of Probes
+Kubernetes gives you three types of health checks probes:
+- Liveness
+- Readiness
+- Startup
+
+Liveness Probe
+      - Liveness probes let Kubernetes know whether your app (running in a container inside Pod) is healthy.
+      - Indicates whether the container is running.
+      - If app is healthy, Kubernetes will not interfere with pod functioning. If app is unhealthy, Pod will be marked as unhealthy. If a       - Pod fails health-checks continuously, the Kubernetes terminates the pod and starts a new one.
+      - Liveness probes could catch a deadlock, where an application is running, but unable to make progress. Restarting a container in such a state can help to make the application more available despite bugs.
+      - Kubelet uses liveness probes to know when to restart a container. If the liveness probe fails, the kubelet kills the container, and the container is subjected to its restart policy.
+      - Configure a health check that periodically checks if your application is still alive. Containers can be restarted if the check fails.
+      - Kubelet will periodically send a GET request to the Pod and expect a response; if the Pod responds between 200–399 then the kubelet considers that Pod is healthy; otherwise, the Pod will be marked as unhealthy.
+
