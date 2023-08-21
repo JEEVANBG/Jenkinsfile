@@ -40,3 +40,8 @@ Readiness Probe
 A readiness probe indicates whether the application running on the container is ready to accept requests from clients:
       - If it succeeds, services matching the pod continue sending traffic to the pod
       - If it fails, the endpoints controller removes the pod from all Kubernetes Services matching the pod
+
+Startup Probe
+A startup probe indicates whether the application running in the container has fully started:
+      - If it succeeds, other probes start their diagnostics. When a startup probe is defined, other probes do not operate until it succeeds
+      - If it fails, the kubelet kills the container, and is restarted in line with the pod restartPolicy
