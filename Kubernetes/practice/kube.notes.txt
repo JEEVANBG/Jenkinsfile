@@ -30,3 +30,13 @@ n Kubernetes, probes are managed by the kubelet. The kubelet performs periodic d
       - ExecAction handler—runs a command inside the container, and the diagnostic succeeds if the command completes with status code 0.
       - TCPSocketAction handler—attempts a TCP connection to the IP address of the pod on a specific port. The diagnostic succeeds if the port is found to be open.
       - HTTPGetAction handler—performs an HTTP GET request, using the IP address of the pod, a specific port, and a specified path. The diagnostic succeeds if the response code returned is between 200-399.
+
+Liveness Probe
+A liveness probe indicates if the container is operating:
+      - If it succeeds, no action is taken and no events are logged
+      - If it fails, the kubelet kills the container, and it is restarted in line with the pod restartPolicy
+
+Readiness Probe
+A readiness probe indicates whether the application running on the container is ready to accept requests from clients:
+      - If it succeeds, services matching the pod continue sending traffic to the pod
+      - If it fails, the endpoints controller removes the pod from all Kubernetes Services matching the pod
