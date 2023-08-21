@@ -26,3 +26,7 @@ Liveness Probe
 Readiness probe :
       A readiness probe indicates whether the application running on the container is ready to accept requests from clients: If it succeeds, services matching the pod continue sending traffic to the pod. If it fails, the endpoints controller removes the pod from all Kubernetes Services matching the pod.
 
+n Kubernetes, probes are managed by the kubelet. The kubelet performs periodic diagnostics on containers running on the node. In order to support these diagnostics, a container must implement one of the following handlers:
+      - ExecAction handler—runs a command inside the container, and the diagnostic succeeds if the command completes with status code 0.
+      - TCPSocketAction handler—attempts a TCP connection to the IP address of the pod on a specific port. The diagnostic succeeds if the port is found to be open.
+      - HTTPGetAction handler—performs an HTTP GET request, using the IP address of the pod, a specific port, and a specified path. The diagnostic succeeds if the response code returned is between 200-399.
