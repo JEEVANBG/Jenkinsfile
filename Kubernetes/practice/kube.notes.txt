@@ -23,3 +23,6 @@ Liveness Probe
       - Configure a health check that periodically checks if your application is still alive. Containers can be restarted if the check fails.
       - Kubelet will periodically send a GET request to the Pod and expect a response; if the Pod responds between 200–399 then the kubelet considers that Pod is healthy; otherwise, the Pod will be marked as unhealthy.
 
+Readiness probe :
+      A readiness probe indicates whether the application running on the container is ready to accept requests from clients: If it succeeds, services matching the pod continue sending traffic to the pod. If it fails, the endpoints controller removes the pod from all Kubernetes Services matching the pod.
+
