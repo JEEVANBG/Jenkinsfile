@@ -1,0 +1,4 @@
+Probes:
+      - Kubernetes provides probes (health checks) to monitor and act on the state of Pods (Containers).
+      - And to make sure only healthy Pods serve traffic. 
+      - With help of Probes, we can control when a pod should be deemed started, ready for service, or live to serve traffic.
