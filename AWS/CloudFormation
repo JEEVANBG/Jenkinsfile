@@ -1,5 +1,14 @@
 AWS CloudFormation :
 
+      AWS CloudFormation is a service that helps you model and set up your AWS resources so that you can spend less time managing those resources and more time focusing on your applications that run in AWS. You create a template that describes all the AWS resources that you want (like Amazon EC2 instances or Amazon RDS DB instances), and CloudFormation takes care of provisioning and configuring those resources for you. 
       AWS CloudFormation is an AWS service that uses template files to automate the setup of AWS resources.
 
       It can also be described as infrastructure automation or Infrastructure-as-Code (IaC) tool and a cloud automation solution because it can automate the setup and deployment of various Infrastructure-as-a-Service (IaaS) offerings on the AWS CloudFormation supports virtually every service that runs in AWS. (A full list of supported services is available here.)
+
+Stack :
+      A stack is a collection of AWS resources that you can manage as a single unit. In other words, you can create, update, or delete a collection of resources by creating, updating, or deleting stacks. All the resources in a stack are defined by the stack's AWS CloudFormation template.
+
+      Stack is one that implements our template file, when we write a template we need to submit it to the stack , which will convert our template request to API calls using CloudFromation services.
+
+      Basically CloudFormation is one of the service from AWS , it is also known as infrastructure as code tool , by creating stack , that will convert our user template file as a api call using a cloud formation service, by that it will create infrastructure as we defined in template file.. 
+
