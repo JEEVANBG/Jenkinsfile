@@ -10,5 +10,5 @@ Stack :
 
       Stack is one that implements our template file, when we write a template we need to submit it to the stack , which will convert our template request to API calls using CloudFromation services.
 
-      Basically CloudFormation is one of the service from AWS , it is also known as infrastructure as code tool , by creating stack , that will convert our user template file as a api call using a cloud formation service, by that it will create infrastructure as we defined in template file.. 
+      Basically CloudFormation is one of the service from AWS , it is also known as infrastructure as code tool , by creating stack , that will convert our user template file as a api call using a cloud formation service, by that it will create infrastructure(AWS Resource) as we defined in a template file.. 
 
