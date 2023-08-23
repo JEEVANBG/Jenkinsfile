@@ -12,3 +12,5 @@ Stack :
 
       Basically CloudFormation is one of the service from AWS , it is also known as infrastructure as code tool , by creating stack , that will convert our user template file as a api call using a cloud formation service, by that it will create infrastructure(AWS Resource) as we defined in a template file.. 
 
+Drift Dtection : 
+      AWS CloudFormation allows you to detect if configuration changes were made to your stack resources outside of CloudFormation via the AWS Management Console, CLI, and SDKs.
