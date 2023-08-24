@@ -18,3 +18,14 @@ Amazon EKS control plane architecture :
         - Actively monitors the load on control plane instances and automatically scales them to ensure high performance.
         - Automatically detects and replaces unhealthy control plane instances, restarting them across the Availability Zones within the AWS Region as needed.
         - Leverages the architecture of AWS Regions in order to maintain high availability.
+
+Prequisets are:
+        - install aws cli
+        - install kubectl
+        - install eksctl
+
+Getting started with Amazon EKS is easy:
+        - Create an Amazon EKS cluster in the AWS Management Console or with the AWS CLI or one of the AWS SDKs.
+        - Launch managed or self-managed Amazon EC2 nodes, or deploy your workloads to AWS Fargate.
+        - When your cluster is ready, you can configure your favorite Kubernetes tools, such as kubectl, to communicate with your cluster.
+        - Deploy and manage workloads on your Amazon EKS cluster the same way that you would with any other Kubernetes environment. You can also view information about your workloads using the AWS Management Console.
