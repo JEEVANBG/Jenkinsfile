@@ -29,3 +29,8 @@ Getting started with Amazon EKS is easy:
         - Launch managed or self-managed Amazon EC2 nodes, or deploy your workloads to AWS Fargate.
         - When your cluster is ready, you can configure your favorite Kubernetes tools, such as kubectl, to communicate with your cluster.
         - Deploy and manage workloads on your Amazon EKS cluster the same way that you would with any other Kubernetes environment. You can also view information about your workloads using the AWS Management Console.
+
+Managed node groups :
+        Amazon EKS managed node groups automate the provisioning and lifecycle management of nodes (Amazon EC2 instances) for Amazon EKS Kubernetes clusters.
+
+        With Amazon EKS managed node groups, you don't need to separately provision or register the Amazon EC2 instances that provide compute capacity to run your Kubernetes applications. You can create, automatically update, or terminate nodes for your cluster with a single operation.
