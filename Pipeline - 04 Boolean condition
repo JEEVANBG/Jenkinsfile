@@ -33,6 +33,8 @@ pipeline {
             steps {
                 script {
                     if (stageResult == false) {
+                        sh 'pwd'
+                        sh 'ls'
                         echo 'STAGE1 is failed, hence execution of STAGE 3 successful'
                     }
                 }
