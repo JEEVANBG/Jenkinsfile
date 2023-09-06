@@ -21,6 +21,9 @@ pipeline {
             steps {
                 script {
                     if (stageResult == true) {
+                        sh 'pwd'
+                        sh 'ls'
+                        echo "Stage1 is failed"
                         echo 'STAGE1 is failed, hence STAGE 2 also failed'
                     }
                 }
