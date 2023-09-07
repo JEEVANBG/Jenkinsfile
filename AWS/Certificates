@@ -71,3 +71,12 @@ APIs are mechanisms that enable two software components to communicate with each
 **************************** SQS *********************************
 What is SQS used for?
 Amazon Simple Queue Service (Amazon SQS) lets you send, store, and receive messages between software components at any volume, without losing messages or requiring other services to be available.
+
+***************************CURL**************************
+Curl Host:
+      When you have multiple web site hosted on a server, if you want to access one of the site using curl to IP of the server, then you need to pass Host header value.
+curl --header "Host: www.mydomain.com" SERVER_IP_HERE
+
+POST:
+POST is an HTTP request method which is used to send data to the server. 
+curl -d "param1=value1&param2=value2" -X POST http://sok.test/post.php
