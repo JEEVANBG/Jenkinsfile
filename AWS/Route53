@@ -77,3 +77,10 @@ The DNS resolver also caches the IP address for example.com for an amount of tim
 8. The web browser sends a request for www.example.com to the IP address that it got from the DNS resolver. This is where your content is, for example, a web server running on an Amazon EC2 instance or an Amazon S3 bucket that's configured as a website endpoint.
 
 9. The web server or other resource at 192.0.2.44 returns the web page for www.example.com to the web browser, and the web browser displays the page.
+
+A hosted zone:
+      A hosted zone is a container for records, and records contain information about how you want to route traffic for a specific domain, such as example.com, and its subdomains (acme.example.com, zenith.example.com). A hosted zone and the corresponding domain have the same name. There are two types of hosted zones:
+
+     Public hosted zones contain records that specify how you want to route traffic on the internet. For more information, see Working with public hosted zones.
+
+     Private hosted zones contain records that specify how you want to route traffic in an Amazon VPC. For more information, see Working with private hosted zones.
