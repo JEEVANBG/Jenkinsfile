@@ -84,3 +84,9 @@ A hosted zone:
      Public hosted zones contain records that specify how you want to route traffic on the internet. For more information, see Working with public hosted zones.
 
      Private hosted zones contain records that specify how you want to route traffic in an Amazon VPC. For more information, see Working with private hosted zones.
+
+
+********************************VPN************************************
+VPN
+    VPN creates a private, encrypted tunnel through which a user's device can access the internet while hiding their personal information, location, and other data.
+
