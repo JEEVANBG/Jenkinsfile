@@ -90,3 +90,5 @@ A hosted zone:
 VPN
     VPN creates a private, encrypted tunnel through which a user's device can access the internet while hiding their personal information, location, and other data.
 
+VPC Endpoints: 
+     Enables private connectivity to services hosted in AWS, from within your VPC without using an Internet Gateway, VPN, Network Address Translation (NAT) devices, or firewall proxies.
