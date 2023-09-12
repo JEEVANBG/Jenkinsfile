@@ -29,3 +29,13 @@ TELNET is a standard TCP/IP protocol used for virtual terminal service given by 
 
 A-type Record DNS:
       A records are standard DNS records while Alias records are custom DNS records. One of the significant differences between an A record and an Alias record is that the A record points a domain name to an IP address. In contrast, an Alias record is used when you want a domain name to point to another domain name
+
+Swap memory:
+      Swap memory” in linux is a file or partition on disk, where data stored in ram can be temporarily moved when there is demand for more memory than your computer has available.
+
+Zoombie process:
+      Is a process ,even after its succesfull completion , it has entry in process rable.
+
+What is a hotfix in software?
+A hotfix is a quick correction to address a bug or defect and typically bypasses the normal software development process. 
+
