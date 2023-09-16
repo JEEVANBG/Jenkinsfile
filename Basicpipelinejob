@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage ('BUILD') {
             steps {
-                sh 'sleep 2'
+                sh 'sleep 5'
             }
         }
         stage ('TEST') {
