@@ -1,0 +1,14 @@
+1. Access Control & Privilege Escalation:
+      This happens when a user gets access to resources or data they're not authorised for.
+
+  How does privilege escalation work in Kubernetes?
+    Kubernetes uses a system called Role-Based Access Control (RBAC) to determine which users get access to what.
+    For example, user "Harold" has read-only access to Kubernetes pods, while user "Kumar" has access patch, update, or delete pods.
+    Different users get assigned different 'roles', so in this example, Harold is assigned the role of 'pod-reader', while Kumar is in the       role of 'pod-writer' (you can name the roles whatever you want).
+    The real problem starts when Harold manages to get the privileges of Kumar, a role which he should not have the authorisation to access.
+
+Best practices to prevent privilege escalation
+  - The first (and most obvious) precaution to take is to keep your Kubernetes up to date.
+  - Older versions might have bugs or flaws that are easily exploitable, so this will altogether eliminate at least some vulnerabilities.
+  - You'll also need to restrict access to the Kubernetes API by using mechanisms like RBAC and admission controllers limit requests to         create, modify, and delete objects in your containers.
+
