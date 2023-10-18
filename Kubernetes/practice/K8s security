@@ -75,3 +75,6 @@ When you incorporate security scans into your CI/CD pipeline, you'll both stream
             Seccomp (short for 'secure computing mode') is a Linux kernel feature that allows you to restrict the calls a user can make within a container. Learn more about how it works.
             SELinux is a Linux kernel security module that allows users and administrators more control over access control. Check out the SELinux Project Wiki for more information.
             AppArmor is another Linux kernel security module that protects the OS and applications from both external and internal threats, and zero-day attacks by restricting a program's capabilities. Check out their website to learn more.
+
+Link:
+https://www.appsecengineer.com/blog/top-kubernetes-security-issues-and-how-to-fix-them
