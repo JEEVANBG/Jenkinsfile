@@ -4,11 +4,74 @@
   How does privilege escalation work in Kubernetes?
     Kubernetes uses a system called Role-Based Access Control (RBAC) to determine which users get access to what.
     For example, user "Harold" has read-only access to Kubernetes pods, while user "Kumar" has access patch, update, or delete pods.
-    Different users get assigned different 'roles', so in this example, Harold is assigned the role of 'pod-reader', while Kumar is in the       role of 'pod-writer' (you can name the roles whatever you want).
+    Different users get assigned different 'roles', so in this example, Harold is assigned the role of 'pod-reader', while Kumar is in the role of 'pod-writer' (you can name the roles whatever you want).
     The real problem starts when Harold manages to get the privileges of Kumar, a role which he should not have the authorisation to access.
 
 Best practices to prevent privilege escalation
   - The first (and most obvious) precaution to take is to keep your Kubernetes up to date.
   - Older versions might have bugs or flaws that are easily exploitable, so this will altogether eliminate at least some vulnerabilities.
-  - You'll also need to restrict access to the Kubernetes API by using mechanisms like RBAC and admission controllers limit requests to         create, modify, and delete objects in your containers.
+  - You'll also need to restrict access to the Kubernetes API by using mechanisms like RBAC and admission controllers limit requests to create, modify, and delete objects in your containers.
 
+2. Insufficient Logging and Monitoring:
+      One of the biggest mistakes you can make with your Kubernetes deployment is to overlook Kubernetes audit logs.
+      It's almost never the case that a security attack happens 'overnight'. Usually, the attacker spends days, sometimes months, doing reconnaissance on the target software, gathering information and waiting for the perfect moment to strike.
+      Monitoring your Kubernetes environment at runtime and logging that information can detect and help you quickly shut down an attack before it does too much damage.
+
+Best practices with Kubernetes audit and logging
+  - Kubernetes lets you audit and log activity in your environment, but doesn't actually analyse the logs.
+  - To do that, you can use an open source threat detection engine like Falco. This tool detects unexpected behaviour, intrusions, and data theft in real time.
+  - It even lets you define rules so that it triggers alerts when it spots the specific sort of activity you're looking for.
+
+3. Security Misconfigurations & Default Configurations:
+      For example, let's consider network policies, which determine which pods can communicate with each other as well as endpoints.
+      Kubernetes doesn't apply a network policy on pods by default, so every pod in your environment can talk to every other one. This can wind up being a serious security risk.
+      Too many developers make the dangerous assumption that default Kubernetes configurations are sufficiently secure. If you're building apps on Kubernetes, this is the first thing to check before deployment.
+
+4. Improper Secrets Management:
+      Built-in secrets management systems in Kubernetes are easily exploitable, and necessitate the use of third-party tools like Hashicorp Vault.
+  Best practices for Kubernetes secrets management
+    - The most reliable methods for securely encrypting and storing secrets is to use third party services. They create a centralised mechanism for secrets management and access control.
+    - One of the most popular open source secrets management tools is Vault by Hashicorp, which offers features like identity-based access, dynamic secrets, and key management. Other popular open-source services are Conjur and Confidant.
+    - Major cloud providers offer robust secrets managements services as well. Amazon has AWS KMS, Azure has Key Vault, and Google Cloud has Cloud Key Management.
+
+5. Compromised Container Images & Registries
+      Container images are static files with executable code that are used to build containers. They contain everything you need for an application to run — the container engine, system libraries, configurations, etc.
+      If the container image itself is compromised, the containers created from it will in turn have security issues that can leave it vulnerable to container breakout.
+
+Here are 2 ways a container images can pose a security risk:
+   a. Insecure public registry images
+      Plenty of organisations use open source base images when building their own container images.
+      These can't be blindly trusted, as they might contain vulnerabilities or security misconfigurations, and in some cases, even hidden malware that could cripple your build.
+      Even official Docker images aren't totally foolproof, since vulnerabilities can be introduced later on in development.
+
+   b. Outdated libraries or packages
+      Container images are immutable, which means their contents cannot be changed once built. This makes it ideal for deploying consistently in any environment.
+
+      The downside to this is that once packages or libraries in the image become obsolete, they can become a security risk for the image as a whole.
+However, there are situations where an outdated library is needed for compatibility with older systems.
+
+  Best practices to secure compromised container images
+      - In both cases, the most effective security solution is to run comprehensive security scans on all your container images before you start building in them.
+
+      - Here's some of the most popular vulnerability scanning tools for container images (in no particular order):
+      Clair
+      Trivy
+      Anchore
+      Remember, it's far more efficient to fix bugs in an image before deployment than have to remove it out of production.
+
+When you incorporate security scans into your CI/CD pipeline, you'll both streamline the remediation process and speed up software delivery. It's a win-win.
+
+6. Runtime Threats
+      If you thought your security problems with Kubernetes ended at the deployment phase, boy, do I have news for you. This is where the fun really starts
+      Now that your cluster is out in the wild, it's fair game for attackers to try and find every tiny little chink in your armour.
+      It could be a minor misconfiguration in your RBAC policies that allows your attacker to gain unauthorised privileges. Or even a malware in a container image you used that gives them backdoor access at runtime.
+      There's any number of things that could go wrong with your Kubernetes deployment.
+
+  Best practices to ensure security at runtime
+      - Here's where auditing and monitoring your containers really comes in handy. Note that Kubernetes only audits and logs activity on your build, but doesn't analyse the logs.
+      - As mentioned above, you can use Falco, an open source threat detection engine that alerts you when it notices an attack happening.
+      - Beyond Kubernetes audits, you should even look into runtime security enforcement tools like Seccomp, SELinux, and AppArmor.
+
+            Seccomp (short for 'secure computing mode') is a Linux kernel feature that allows you to restrict the calls a user can make within a container. Learn more about how it works.
+            SELinux is a Linux kernel security module that allows users and administrators more control over access control. Check out the SELinux Project Wiki for more information.
+            AppArmor is another Linux kernel security module that protects the OS and applications from both external and internal threats, and zero-day attacks by restricting a program's capabilities. Check out their website to learn more.
