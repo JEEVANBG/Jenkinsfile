@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: ipapp
-        image: harshajain/ip_app:2
+        image: jeevanbg/new_app:tag26
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
