@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ngnix-deploymentpod
+spec:
+  replicas: 4
+  template:
+    metadata:
+      name: ngnix-deploy
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: ngnix-container
+          image: nginx
+          ports:
+            - containerPort: 80
+  selector:
+    matchLabels:
+      app: ngnix
+
+
+---
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: my-nodeport
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      port: 8090
+      targetPort: 80
+      nodePort: 30002
+ 
