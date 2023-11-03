@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
         - name: ngnix-container
-          image: jeevanbg/new_app:tagversion
+          image: jeevanbg/new_app:tag26
           ports:
             - containerPort: 80
   selector:
