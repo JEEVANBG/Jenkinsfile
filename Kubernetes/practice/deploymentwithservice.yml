@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ngnix-deploymentpod
+  name: ip-app-deployment
 spec:
   replicas: 4
-  template:
-    metadata:
-      name: ngnix-deploy
-      labels:
-        app: ngnix
-    spec:
-      containers:
-        - name: ngnix-container
-          image: harshajain/ip_app:2
-          ports:
-            - containerPort: 80
   selector:
     matchLabels:
-      app: ngnix
+      app: ip-app
+  template:
+    metadata:
+      labels:
+        app: ip-app
+    spec:
+      containers:
+      - name: ipapp
+        image: harshajain/ip_app:2
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
 
 ---
 apiVersion: v1
@@ -27,12 +27,12 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: ngnix
+    app: ip-app
   ports:
     - name: http
       port: 8090
-      targetPort: 80
-      nodePort: 30002
+      targetPort: 8080
+      nodePort: 30004
  
 
 
