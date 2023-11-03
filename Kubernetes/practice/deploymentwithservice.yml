@@ -25,7 +25,9 @@ kind: Service
 metadata:
   name: my-nodeport
 spec:
-  type: NodePort
+  type: Nodeport
+  selector:
+    app: ngnix
   ports:
     - name: http
       port: 8090
