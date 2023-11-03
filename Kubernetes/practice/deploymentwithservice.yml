@@ -20,16 +20,5 @@ spec:
       app: ngnix
 
 
----
-apiVersion: apps/v1
-kind: Service
-metadata:
-  name: my-nodeport
-spec:
-  type: NodePort
-  ports:
-    - name: http
-      port: 8090
-      targetPort: 80
-      nodePort: 30002
+
  
